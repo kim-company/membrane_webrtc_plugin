@@ -263,6 +263,7 @@ defmodule Membrane.WebRTC.EndpointBin do
       ice: %ICE.Endpoint{
         integrated_turn_options: opts.integrated_turn_options,
         handshake_opts: opts.handshake_opts,
+        dtls?: false,
         telemetry_label: opts.telemetry_label,
         trace_context: opts.trace_context,
         parent_span: Membrane.OpenTelemetry.get_span(@life_span_id)
