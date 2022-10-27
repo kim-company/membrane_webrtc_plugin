@@ -523,6 +523,9 @@ defmodule Membrane.WebRTC.EndpointBin do
   end
 
   @impl true
+  def handle_notification({:handshake_init_data, _component_id, nil}, _from, _ctx, state), do: {:ok, state}
+
+  @impl true
   def handle_notification({:handshake_init_data, _component_id, fingerprint}, _from, _ctx, state) do
     {:ok, %{state | dtls_fingerprint: {:sha256, hex_dump(fingerprint)}}}
   end
